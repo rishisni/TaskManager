@@ -1,64 +1,69 @@
-Task Management API (Django + DRF)
+# Task Management API (Django + DRF)
 
-This is a Task Management API built using Django and Django REST Framework (DRF). It allows users to create, assign, update, and complete tasks.
- Features
+This is a **Task Management API** built using **Django** and **Django REST Framework (DRF)**. It provides a simple yet powerful system for managing users and tasks, allowing assignment, updates, and status tracking.
 
-    User Management (CRUD operations)
+---
 
-    Task Management (CRUD operations)
+## Features
 
-    Assign tasks to multiple users
+- **User Management** (Create, Read, Update, Delete)
+- **Task Management** (Create, Read, Update, Delete)
+- **Assign Tasks** to multiple users
+- **Update Task Status** (including marking as completed)
+- **Superadmin Creation** for full administrative control
 
-    Update task status (including marking as completed)
+---
 
-    Superadmin Creation for full control
+## Installation & Setup
 
-Installation & Setup
-1️ Clone the Repository
-
+### 1. Clone the Repository
+```sh
 git clone git@github.com:rishisni/TaskManager.git
-cd taskmanager
+cd TaskManager
 
-2️ Create a Virtual Environment & Activate
+2. Create and Activate a Virtual Environment
 
 python3 -m venv venv
-# Windows
-venv\Scripts\activate
-# Mac/Linux
-source venv/bin/activate
 
-3️ Install Dependencies
+venv\Scripts\activate  (Windows)
+
+source venv/bin/activate (Mac/Linux:)
+
+3. Install Dependencies
 
 pip install -r requirements.txt
 
-4️ Apply Migrations & Create Superadmin
+4.Apply Migrations & Create a Superadmin
 
 python manage.py migrate
-python manage.py createsuperuser  # Follow prompts to set username & password
+python manage.py createsuperuser  # Follow the prompts to set up credentials
 
-5️ Run the Development Server
+5. Run the Development Server
 
 python manage.py runserver
 
 The API will be available at:
- http://localhost:8000/api/
- API Endpoints
-Method	Endpoint	                        Description
+http://localhost:8000/api/
 
-GET	     /api/users/	                    List all users
-GET	     /api/users/{user_id}/	            Retrieve a specific user
-PATCH	 /api/users/{user_id}/	            Update user details
-DELETE	 /api/users/{user_id}/	            Delete a user
-GET	     /api/tasks/	                    List all tasks
-POST	 /api/tasks/	                    Create a new task
-GET	     /api/tasks/{task_id}/	            Retrieve a specific task
-PATCH	 /api/tasks/{task_id}/update/	    Update a task (status, title, etc.)
-DELETE	 /api/tasks/{task_id}/	            Delete a task
-POST	 /api/tasks/{task_id}/assign/	    Assign users to a task
-GET	     /api/users/{user_id}/tasks/	    Get all tasks assigned to a user
 
-Notes
+API Endpoints
 
-    Superadmin Creation: You can create a superadmin using createsuperuser for managing tasks and users.
+Method	        Endpoint	                        Description
+GET	            /api/users/	                        List all users
+GET	            /api/users/{user_id}/	            Retrieve details of a specific user
+PATCH	        /api/users/{user_id}/	            Update user details
+DELETE	        /api/users/{user_id}/	            Delete a user
+GET	            /api/tasks/	                        List all tasks
+POST	        /api/tasks/	                        Create a new task
+GET	            /api/tasks/{task_id}/	            Retrieve details of a specific task
+PATCH	        /api/tasks/{task_id}/update/	    Update a task (status, title, etc.)
+DELETE	        /api/tasks/{task_id}/	            Delete a task
+POST	        /api/tasks/{task_id}/assign/	    Assign users to a task
+GET	            /api/users/{user_id}/tasks/	        Get all tasks assigned to a specific user
 
-    Testing Locally: The API can be tested at http://localhost:8000/api/ using Postman or cURL.
+
+Additional Notes
+
+    Superadmin Creation: You can create a superadmin using the createsuperuser command to manage tasks and users.
+
+    Testing the API: The API can be tested using Postman or cURL at: http://localhost:8000/api/
